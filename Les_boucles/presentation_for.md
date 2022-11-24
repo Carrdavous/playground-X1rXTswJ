@@ -16,10 +16,10 @@ Attention au fait que, comme pour le `if... else...`, il ne faut pas oublier les
 Passons à des exemples plus informatiques.  
 Nous allons nous intéresser principalement à l'énumération de nombres car c'est de loin la plus utile au début. Pour créer une liste de nombres, on utilise la fonction `range`.
 
-+ `range(n)` : crée une liste de n nombres allant de 0 à n-1.  
-Et oui en informatique, il va falloir prendre l'habitude de toujours commencer à 0 et du coup finir à n-1 si on veut n nombres en tout.
-+ `range(n1,n2)` : crée une liste de nombres allant de n1 à n2-1.
-+ `range(n1,n2,pas)` : crée une liste de nombres allant de n1 à n2-1 en sautant de pas en pas.
++ `range(stop)` : crée une liste de `n` nombres allant de 0 à `stop - 1`.  
+Et oui en informatique, il va falloir prendre l'habitude de toujours commencer à 0 et du coup finir à `n - 1` si on veut `n` nombres en tout.
++ `range(start, stop)` : crée une liste de nombres allant de `start` à `stop - 1`.
++ `range(start, stop, step)` : crée une liste de nombres allant de `start` à `stop - 1` en sautant de `step` en `step`.
 
 Par exemple :  
 - `range(4)` est la suite de nombres `0, 1, 2, 3`
@@ -27,7 +27,8 @@ Par exemple :
 - `range(1,9,3)` est la suite de nombres `1, 4, 7` (de 3 en 3 en partant de 1)
 - `range(3,0,-1)` est la suite `3, 2, 1`  (un pas négatif permet de compter à l'envers ce qui est très pratique des fois)
 
-Passons à des exemples d'utilisation. Essayez d'abord de deviner le résultat puis appuyez sur Run pour vérifier.
+Passons à des exemples d'utilisation.   
+Essayez d'abord de deviner le résultat puis appuyez sur Run pour vérifier.
 ```python runnable
 for i in range(3) :
    print("Bonjour !")
