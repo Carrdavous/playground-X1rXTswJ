@@ -38,19 +38,21 @@ for i in range(5) :
    print(i)
 ```
 ```python runnable
-somme=0
+somme = 0
 for i in range(4) :
-   somme+= i
+   somme += i
 print(somme)
 ```
 Détaillons cet exemple :  
-Pour `i` allant de 0 jusqu'à 3 (c'est à dire range(4)),  
-je demande à chaque fois `somme += i` ce qui veut dire que je rajoute à `somme` la valeur `i` qui vaut tour à tour 0 puis 1 puis 2 puis 3.  
+Pour `i` allant de 0 jusqu'à 3 (c'est à dire `range(4)`),  
+je demande à chaque fois `somme += i` ce qui veut dire que je rajoute à `somme` la valeur `i` qui vaut, tour à tour, 0 puis 1 puis 2 puis 3.  
 Finalement, j'affiche le résultat qui n'est autre que 0+1+2+3.
 
 ## Boucles `for` imbriquées
 
-On peut bien sur enchainer les boucles. Imaginons que nous voulions afficher tous les couples `(x,y)` possibles avec `x` et `y` des entiers entre 0 et 5. Une façon de faire serait de commençer par `x = 0` et énumérer tous les couples `(0,y)` pour `y` entre 0 et 5 puis faire de même pour `x = 1` jusqu'à `x = 5`. On voit bien qu'il faut faire en boucle sur `x`... une boucle sur `y`. Et comme tout ce qui se trouve dans une boucle doit être indenté, il faudra donc décaler notre deuxième `for` par rapport au premier. Voici un exemple de programme pour afficher ces couples :
+On peut, bien sûr, enchainer les boucles.   
+Imaginons que nous voulions afficher tous les couples `(x,y)` possibles avec `x` et `y` des entiers entre 0 et 5.   
+Une façon de faire serait de commençer par `x = 0` et énumérer tous les couples `(0, y)` pour `y` entre 0 et 5 puis faire de même pour `x = 1` jusqu'à `x = 5`. On voit bien qu'il faut faire en boucle sur `x`... une boucle sur `y`. Et comme tout ce qui se trouve dans une boucle doit être indenté, il faudra donc décaler notre deuxième `for` par rapport au premier. Voici un exemple de programme pour afficher ces couples :
 ```python runnable
 for x in range(6):
     for y in range(6):
