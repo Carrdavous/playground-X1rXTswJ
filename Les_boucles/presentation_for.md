@@ -22,10 +22,10 @@ Et oui en informatique, il va falloir prendre l'habitude de toujours commencer �
 + `range(n1,n2,pas)` : crée une liste de nombres allant de n1 à n2-1 en sautant de pas en pas.
 
 Par exemple :  
-- `range(4)` est la suite de nombres 0 1 2 3
-- `range(3,6)` est la suite de nombres 3 4 5
-- `range(1,9,3)` est la suite de nombres 1 4 7 (de 3 en 3 en partant de 1)
-- `range(3,0,-1)` est la suite 3 2 1  (un pas négatif permet de compter à l'envers ce qui est très pratique des fois)
+- `range(4)` est la suite de nombres `0, 1, 2, 3`
+- `range(3,6)` est la suite de nombres `3, 4, 5`
+- `range(1,9,3)` est la suite de nombres `1, 4, 7` (de 3 en 3 en partant de 1)
+- `range(3,0,-1)` est la suite `3, 2, 1`  (un pas négatif permet de compter à l'envers ce qui est très pratique des fois)
 
 Passons à des exemples d'utilisation. Essayez d'abord de deviner le résultat puis appuyez sur Run pour vérifier.
 ```python runnable
