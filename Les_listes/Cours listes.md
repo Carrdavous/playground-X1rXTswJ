@@ -57,18 +57,18 @@ Pour créer une liste, il y a plusieurs façons de faire :
       ma_liste_de_nombres.extend([6, 12, 14])
       print(ma_liste_de_nombres)
       ```
-      L'appel à `liste.exten(objet)` ajoute directement tous le contenu de l'`objet` à la fin de la `liste`. La liste de départ a été modifiée !  
+      L'appel à `liste.extend(objet)` ajoute directement tout le contenu de l'`objet` à la fin de la `liste`. La liste de départ a été modifiée !  
       **Important** : L'`objet` doit être une liste.
 
     - `liste1 + liste2` : Comme pour les chaines de caractères, le signe + va permettre de concatener les deux listes dans l'ordre dans lequel elles ont été renseignées. La différence avec la méthode `.extend()` est qu'aucune liste n'est modifiée ! Pour conserver le résultat de la concaténation des deux listes, il est nécessaire de le sauvegarder dans une variable.
     
-      Pour résumer, la méthode `liste.extend(autre_liste)` correspond à `liste = liste + autre_liste` mais du coup, on perd les informations qui sont dans `liste` à l'origine ce qui n'est pas toujours ce que l'on veut. Il faudra donc choisir au mieux la façon dont on rajoute les éléments dans une liste.
+      Pour résumer, la méthode `liste.extend(autre_liste)` correspond à `liste = liste + autre_liste` mais, du coup, le contenu de la `liste` de départ a changé. L'utilisation de la méthode `extend()` n'est pas meilleur que l'utilisation de l'opérateur `+`, c'est le contexte qui détermine le meilleur usage.
       ```python runnable
-      liste_chiffres_pairs=[0 ,2 ,4 ,6 ,8 ]
-      liste_chiffres_impairs=[1, 3, 5, 7 ,9]
+      liste_chiffres_pairs = [0 ,2 ,4 ,6 , 8]
+      liste_chiffres_impairs = [1, 3, 5, 7 ,9]
       print(liste_chiffres_pairs + liste_chiffres_impairs)
       ```
-      Le résultat s'affiche contrairement au cas où on aurait utilisé .extend mais comme on n'a pas mis le résultat dans une variable, on ne pourrait pas l'utiliser ensuite...
+      Le résultat de l'opération s'affiche. Cependant, il n'est pas conservé dans une variable. Si l'utilisation de ce résultat s'avère nécessaire, le sauvegarder dans une variable devient obligatoire.
 
 + `liste * n` : crée une nouvelle liste où la liste est répétée en boucle n fois.
   ```python runnable
