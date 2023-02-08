@@ -2,46 +2,67 @@
 
 # Présentation des listes
 
-Les listes sont des incontournables de la programmation. Tant qu'on a que quelques informations à stocker, on peut les mettre dans des variables mais on ne peut pas s'amuser à rentrer une à une 1000 informations dans une variable individuelle... A la place, on les met dans une liste que l'on pourra manipuler et c'est cette liste qu'on sauvegarde dans une variable.
+Les listes sont des incontournables de la programmation. Tant qu'il n'y a que quelques informations à stocker, la création de quelques variables peut suffire. Cependant, il n'st pas possible d'entrer une à une 1000 informations dans une variable individuelle. Pour cela, la liste peut contenir plusieurs informations *en un seul endroit*. C'est cette liste qui sera sauvegardée dans une variable.
+
+# Écriture
+
+Les listes en python sont définies par des crochets `[]`. Les éléments de la liste sont disposés entre les crochets et séparés les uns des autres par une virgule `,`. 
 
 # Création d'une liste
 
-Commençons par les bases : Créer une liste. Il y a plusieurs façons d'en créer :
-
-+ En rentrant les données à la main :
+Pour créer une liste, il y a plusieurs façons de faire :
++ Pour commencer, il est ipossible de créer une liste vide : 
+  ```python
+  liste_vide = []
+  ```
++ En rentrant les données à la main :  
   Par exemple :
   ```python
-  ma_liste_de_nombres = [ 1, 4, 9, 3, 1, 2 ]
-  ma_liste_de_courses = [ "stylos rouges" , "piles" , "souris pour la salle info" , "claviers" ]
-  ma_liste_de_coordonnées_de_vecteurs = [ (1,1) , (0,1) , (1,6)]
+  ma_liste_de_nombres = [1, 4, 9, 3, 1, 2]
+  ma_liste_de_courses =  ["stylo", "pile", "souris", "clavier"]
+  ma_liste_de_coordonnées_de_vecteurs = [(1,1), (0,1), (1,6)]
   ma_liste_bordélique = ["un texte", 18, 5.4, True, (1,0)]
   ```
-  On remarquera qu'on peut mettre un peu de tout dans une liste et en plus mélanger les types (chaines de caractères, nombres, booléens ...).
-  Un dernier exemple qui est celui que vous allez utiliser le plus : la liste qui ne contient rien !
-  ```python
-  la_liste_vide = []
-  ```
+  **N.B.** : Il est possible de mélanger les types de données (chaine de caractères, nombre, booléen...) au sein d'une même liste.  
   
 + En ajoutant des objets dans une liste :  
   Il y a plusieurs façons de s'y prendre :
-    - `.append(obj)` : à rajouter derrière la liste à qui on veut rajouter `obj`. Important : Elle modifie directement la liste et ne renvoie rien.
+    - `.append(obj)` : il s'agit, en fait, d'une méthode. Le nom de la liste doit être renseigné avant le nom de la méthode.  
+      **Important** : Elle modifie directement la liste et ne renvoie rien.
       ```python runnable
-      ma_liste_de_courses = [ "stylos rouges" , "piles" , "souris pour la salle info" , "claviers" ]
-      ma_liste_de_courses.append("brosse pour effacer")
+      ma_liste_de_courses = ["stylo", "pile", "souris", "clavier"]
+      ma_liste_de_courses.append("effaceur")
       print(ma_liste_de_courses)
       ```
-      Je suis obligé de retaper le nom de ma liste pour la voir car elle a été modifiée directement.  
-      En partant de la liste vide, on peut ainsi créer un nouvelle liste en ajoutant élément par élément. Cela peut sembler absurde ou du moins très long  mais dans une boucle for ou while, c'est une manière très pratique de créer une liste de données qu'on calcule ou qui nous arrive au fur et à mesure.
+      L'appel à `liste.append(objet)` ajoute directement l'`objet` à la fin de la `liste`. La liste de départ a été modifiée !  
+      Il est possible de partir d'une liste vide, et ainsi ajouter des objets au fur et à mesure à l'aide d'une boucle.  
       
-    - `.extend(autre_liste)` : à rajouter derrière la liste à qui on veut rajouter à la suite la deuxième_liste. Comme pour append, elle modifie directement la liste et ne renvoie rien.
+      Dans l'exemple ci-dessous, une liste vide est créée puis remplie avec 100 nombres tirés au hasard entre 0 et 99 inclus.  
       ```python runnable
-      ma_liste_de_nombres = [ 1, 4, 9, 3, 1, 2 ]
-      ma_liste_de_nombres.extend([ 6, 12, 14])
+      from random import randrange
+      
+      liste_de_nombres = []
+      i = 0
+      while i < 100:
+         aleat = randrange(0, 100)
+         liste_de_nombres.append(aleat)
+         i += 1
+      print(liste_de_nombres)
+      ```
+      
+    - `.extend(autre_liste)` : il s'agit également d'une méthode. Le nom de la liste doit être renseigné avant le nom de la méthode.  
+      **Important** : Elle modifie directement la liste et ne renvoie rien.
+      ```python runnable
+      ma_liste_de_nombres = [1, 4, 9, 3, 1, 2]
+      ma_liste_de_nombres.extend([6, 12, 14])
       print(ma_liste_de_nombres)
       ```
+      L'appel à `liste.exten(objet)` ajoute directement tous le contenu de l'`objet` à la fin de la `liste`. La liste de départ a été modifiée !  
+      **Important** : L'`objet` doit être une liste.
 
-    - `liste1 + liste2` : Comme pour les chaines de caractères, le signe + va permettre de mettre les deux listes bout à bout, tout comme extend mais à un énorme différence près : avec extend, la première liste devient le résultat alors que dans ce cas ci, il faut mettre le résultat dans une variable pour le sauvegarder. C'est comme pour 3+5, si on ne met pas le résultat dans une variable, on ne pourra rien en faire.
-      Pour résumer, la fonction `extend(autre_liste)` correspond à `liste = liste + autre_liste` mais du coup, on perd les informations qui sont dans `liste` à l'origine ce qui n'est pas toujours ce que l'on veut. Il faudra donc choisir au mieux la façon dont on rajoute les éléments dans une liste.
+    - `liste1 + liste2` : Comme pour les chaines de caractères, le signe + va permettre de concatener les deux listes dans l'ordre dans lequel elles ont été renseignées. La différence avec la méthode `.extend()` est qu'aucune liste n'est modifiée ! Pour conserver le résultat de la concaténation des deux listes, il est nécessaire de le sauvegarder dans une variable.
+    
+      Pour résumer, la méthode `liste.extend(autre_liste)` correspond à `liste = liste + autre_liste` mais du coup, on perd les informations qui sont dans `liste` à l'origine ce qui n'est pas toujours ce que l'on veut. Il faudra donc choisir au mieux la façon dont on rajoute les éléments dans une liste.
       ```python runnable
       liste_chiffres_pairs=[0 ,2 ,4 ,6 ,8 ]
       liste_chiffres_impairs=[1, 3, 5, 7 ,9]
