@@ -59,20 +59,15 @@ Pour créer une liste, il y a plusieurs façons de faire :
       **Important** : Elle modifie directement la liste et ne renvoie rien.
       ```python runnable
       ma_liste_de_nombres = [1, 4, 9, 3, 1, 2]
+      une_autre_liste_de_nombres = [6, 7, 8]
+      ma_liste_de_nombres.extend(une_autre_liste_de_nombres)
+      print(ma_liste_de_nombres)
       ma_liste_de_nombres.extend([6, 12, 14])
       print(ma_liste_de_nombres)
       ```
       L'appel à `liste.extend(objet)` ajoute directement tout le contenu de l'`objet` à la fin de la `liste`. La liste de départ a été modifiée !  
       
       **Important** : L'`objet` doit être une liste.
-      ```python runnable
-      liste = [1, 2, 3]
-      autre_liste = [4, 5, 6]
-      print(liste)
-      liste.extend(autre_liste)
-      print(liste)
-      liste.extend([7, 8, 9])
-      ```
 
     - `liste1 + liste2` : Comme pour les chaines de caractères, l'opérateur `+` va permettre de concatener les deux listes dans l'ordre dans lequel elles ont été renseignées. La différence avec la méthode `.extend()` est qu'aucune liste n'est modifiée ! Pour conserver le résultat de la concaténation des deux listes, il est nécessaire de le sauvegarder dans une variable.
     
@@ -91,31 +86,31 @@ Pour créer une liste, il y a plusieurs façons de faire :
   print([1] * 5)
   print([1, 2, 3]* 3)
   ```
-+ Utiliser `list(obj)` : Cette fonction transforme, quand c'est possible, `obj` en liste.
++ En utilisant la fonction `list(obj)` : Cette fonction transforme, quand c'est possible, `obj` en liste.
   ```python runnable
   print(list("Hello World !"))
   print(list(1, 2, 3, 4, 5))
   ```
   
-+ En utilisant la fonction range :
-  C'est une fonction qui donne une énumération de nombres. Petit rappel :
-  - range(n) : crée une énumération de n nombres allant de 0 à n-1. Et oui en informatique, il va falloir prendre l'habitude de toujours commencer à 0 et du coup finir à n-1 si on veut n nombres en tout.
-  - range(n1,n2) : crée une énumération de nombres allant de n1 à n2-1.
-  - range(n1,n2,pas) : crée une énumération de nombres allant de n1 à n2-1 en sautant de pas en pas.
++ En utilisant la fonction `range(start, stop, step)` :
+  Cette fonction retourne une énumération de nombres (en Python, on appelle ça un Iterateur).  
+  Utilisations possibles de la fonction :
+  - `range(stop)` : crée une énumération de `stop` nombres allant de `0` à `stop - 1`.  
+    En informatique, on commence toujours à compter à partir de 0. 
+  - `range(start, stop)` : crée une énumération de nombres allant de `start` à `stop - 1`.
+  - `range(start, stop, step)` : crée une énumération de nombres allant de `start` à `stop - 1` en sautant de `step` en `step`.
   
-  Remarque importante : On a précisé ici que `range` fournit une *énumération*. En effet, ce n'est pas directement une liste de nombre comme on pourrait le penser quand on l'utilise avec `for`. On peut cependant très facilement en faire une liste en lui appliquant `list()`.  
+  **Remarque** : La fonction `range` fournit une *énumération*. En effet, ce n'est pas directement une liste de nombres comme on pourrait le penser en l'utilisant avec une boucle `for`.   
+  On peut cependant très facilement en faire une liste en lui appliquant la fonction `list()`.  
   Par exemple :
   ```python runnable
   print(range(6))
   print(list(range(6)))
-  print(list(range(3,9)))
-  print(list(range(1,15,3)))
-  print(list(range(7,0,-1)))
+  print(list(range(3, 9)))
+  print(list(range(1, 15, 3)))
+  print(list(range(7, 0, -1)))
   ```
   On remarquera que le premier exemple ne donne pas une liste et qu'il faut absolument rajouter `list()` pour l'obtenir.
-  
-+ Création de liste par compréhension :
-  On peut s'en passer dans un premier temps mais c'est de loin la manière la plus puissante de créer une nouvelle liste à partir de listes existantes. Voir le paragraphe dédié plus bas.
   
 # Opérations sur les listes
 
