@@ -70,12 +70,16 @@ Pour créer une liste, il y a plusieurs façons de faire :
       ```
       Le résultat de l'opération s'affiche. Cependant, il n'est pas conservé dans une variable. Si l'utilisation de ce résultat s'avère nécessaire, le sauvegarder dans une variable devient obligatoire.
 
-+ `liste * n` : crée une nouvelle liste où la liste est répétée en boucle n fois.
++ `liste * n` : crée une nouvelle liste où la liste est répétée en boucle `n` fois.
   ```python runnable
   print([1] * 5)
   print([1, 2, 3]* 3)
   ```
-+ Utiliser `list(obj)` : Cette fonction transforme quand c'est possible `obj` en liste. Par exemple un ensemble, un tuple, un itérateur. On va voir un exemple juste après avec `range`.
++ Utiliser `list(obj)` : Cette fonction transforme, quand c'est possible, `obj` en liste.
+  ```python runnable
+  print(list("Hello World !")
+  print(list(1, 2, 3, 4, 5))
+  ```
   
 + En utilisant la fonction range :
   C'est une fonction qui donne une énumération de nombres. Petit rappel :
