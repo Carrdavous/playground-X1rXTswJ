@@ -8,14 +8,16 @@ Les listes sont des incontournables de la programmation. Tant qu'il n'y a que qu
 
 Les listes en python sont définies par des crochets `[]`. Les éléments de la liste sont disposés entre les crochets et séparés les uns des autres par une virgule `,`. 
 
-# Création d'une liste
-
-Pour créer une liste, il y a plusieurs façons de faire :
-+ Pour commencer, il est ipossible de créer une liste vide : 
+Pour commencer, une liste vide se crée simplement : 
   ```python
   liste_vide = []
   ```
-+ En rentrant les données à la main :  
+
+# Création d'une liste
+
+Pour créer une liste, il y a plusieurs façons de faire :
+
++ En encodant *à la main* les différentes valeurs :  
   Par exemple :
   ```python
   ma_liste_de_nombres = [1, 4, 9, 3, 1, 2]
@@ -26,8 +28,10 @@ Pour créer une liste, il y a plusieurs façons de faire :
   **N.B.** : Il est possible de mélanger les types de données (chaine de caractères, nombre, booléen...) au sein d'une même liste.  
   
 + En ajoutant des objets dans une liste :  
+
   Il y a plusieurs façons de s'y prendre :
     - `.append(obj)` : il s'agit, en fait, d'une méthode. Le nom de la liste doit être renseigné avant le nom de la méthode.  
+    
       **Important** : Elle modifie directement la liste et ne renvoie rien.
       ```python runnable
       ma_liste_de_courses = ["stylo", "pile", "souris", "clavier"]
@@ -35,6 +39,7 @@ Pour créer une liste, il y a plusieurs façons de faire :
       print(ma_liste_de_courses)
       ```
       L'appel à `liste.append(objet)` ajoute directement l'`objet` à la fin de la `liste`. La liste de départ a été modifiée !  
+      
       Il est possible de partir d'une liste vide, et ainsi ajouter des objets au fur et à mesure à l'aide d'une boucle.  
       
       Dans l'exemple ci-dessous, une liste vide est créée puis remplie avec 100 nombres tirés au hasard entre 0 et 99 inclus.  
@@ -58,11 +63,22 @@ Pour créer une liste, il y a plusieurs façons de faire :
       print(ma_liste_de_nombres)
       ```
       L'appel à `liste.extend(objet)` ajoute directement tout le contenu de l'`objet` à la fin de la `liste`. La liste de départ a été modifiée !  
+      
       **Important** : L'`objet` doit être une liste.
+      ```python runnable
+      liste = [1, 2, 3]
+      autre_liste = [4, 5, 6]
+      print(liste)
+      liste.extend(autre_liste)
+      print(liste)
+      liste.extend([7, 8, 9])
+      ```
 
-    - `liste1 + liste2` : Comme pour les chaines de caractères, le signe + va permettre de concatener les deux listes dans l'ordre dans lequel elles ont été renseignées. La différence avec la méthode `.extend()` est qu'aucune liste n'est modifiée ! Pour conserver le résultat de la concaténation des deux listes, il est nécessaire de le sauvegarder dans une variable.
+    - `liste1 + liste2` : Comme pour les chaines de caractères, l'opérateur `+` va permettre de concatener les deux listes dans l'ordre dans lequel elles ont été renseignées. La différence avec la méthode `.extend()` est qu'aucune liste n'est modifiée ! Pour conserver le résultat de la concaténation des deux listes, il est nécessaire de le sauvegarder dans une variable.
     
-      Pour résumer, la méthode `liste.extend(autre_liste)` correspond à `liste = liste + autre_liste` mais, du coup, le contenu de la `liste` de départ a changé. L'utilisation de la méthode `extend()` n'est pas meilleur que l'utilisation de l'opérateur `+`, c'est le contexte qui détermine le meilleur usage.
+      Pour résumer, la méthode `liste.extend(autre_liste)` correspond à `liste = liste + autre_liste` mais, du coup, le contenu de la `liste` de départ a changé. 
+      
+      L'utilisation de la méthode `extend()` n'est pas meilleur que l'utilisation de l'opérateur `+`, c'est le contexte qui détermine le meilleur usage.
       ```python runnable
       liste_chiffres_pairs = [0 ,2 ,4 ,6 , 8]
       liste_chiffres_impairs = [1, 3, 5, 7 ,9]
@@ -77,7 +93,7 @@ Pour créer une liste, il y a plusieurs façons de faire :
   ```
 + Utiliser `list(obj)` : Cette fonction transforme, quand c'est possible, `obj` en liste.
   ```python runnable
-  print(list("Hello World !")
+  print(list("Hello World !"))
   print(list(1, 2, 3, 4, 5))
   ```
   
