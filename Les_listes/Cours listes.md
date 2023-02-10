@@ -110,66 +110,77 @@ Pour créer une liste, il y a plusieurs façons de faire :
   print(list(range(1, 15, 3)))
   print(list(range(7, 0, -1)))
   ```
-  On remarquera que le premier exemple ne donne pas une liste et qu'il faut absolument rajouter `list()` pour l'obtenir.
+  On remarquera que le premier exemple ne donne pas une liste et qu'il faut absolument ajouter `list()` pour l'obtenir.
   
 # Opérations sur les listes
 
-Maintenant qu'on sait créer des listes, encore faut-il pouvoir les manipuler. Voici un résumé des principales actions sur les listes.
-+ `liste[n]` : Permet de récupérer l'élément d'indice n. Attention : le premier élément est d'indice 0 !
+Voici un résumé des principales actions sur les listes.
+
++ `liste[n]` : Permet de récupérer l'élément d'indice `n`. 
+  Attention : le premier élément dispose de l'indice **0** !
   ```python runnable
-  ma_liste_de_courses = [ "stylos rouges" , "piles" , "souris pour la salle info" , "claviers" ]
+  ma_liste_de_courses = ["stylos" , "piles" , "souris", "clavier"]
   print(ma_liste_de_courses[1])
   print(ma_liste_de_courses[-1])
   ```
-  Comme pour les chaines de caractères, un nombre négatif nous permet de partir de la fin.
-  Astuce : Pour inverser deux éléments d'une liste, on peut  écrire : `liste[i], liste[j] = liste[j], liste[i]`
+  Comme pour les chaines de caractères, un indice négatif nous permet de partir de la fin.
   
-+ `liste[n1:n2]` : Permet de récupérer la liste des éléments d'indice compris entre n1 et n2-1.
++ `liste[start:stop]` : Permet de récupérer la liste des éléments d'indice compris entre `start` et `stop - 1`.
   ```python runnable
-  ma_liste_de_courses = [ "stylos rouges" , "piles" , "souris pour la salle info" , "claviers" ]
-  print(ma_liste_de_courses[1 : 3])
+  ma_liste_de_courses = ["stylos" , "piles" , "souris" , "clavier"]
+  print(ma_liste_de_courses[1:3])
   print(ma_liste_de_courses[:3])
   ```
-  Comme pour les chaines de caractères, si on omet  n1, on part du début et si on omet n2, on va jusqu'à la fin de la liste.
+  Comme pour les chaines de caractères, 
+  - si on omet `start`, on commence au début, c'est-à-dire **0**,
+  - si on omet `stop`, on va jusqu'à la fin de la liste.
   
-+ `liste[n]= val` : Permet de modifier la valeur de l'élément d'indice n.
++ `liste[n]= val` : Permet de modifier l'élément d'indice `n` par la valeur `val`.
   ```python runnable
-  ma_liste_de_courses = [ "stylos rouges" , "piles" , "souris pour la salle info" , "claviers" ]
-  ma_liste_de_courses[1] = "piles rechargeables"
+  ma_liste_de_courses = ["stylos" , "piles" , "souris" , "clavier"]
+  ma_liste_de_courses[1] = "marqueur"
   print(ma_liste_de_courses)
   ```
   
 + `len(liste)` : Donne la longueur de la liste (le nombre d'éléments).
   ```python runnable
-  ma_liste_de_courses = [ "stylos rouges" , "piles" , "souris pour la salle info" , "claviers" ]
+  ma_liste_de_courses = ["stylos", "piles", "souris", "clavier"]
   print(len(ma_liste_de_courses))
   ```
 
-+ `liste.remove(element)` : Retire `element` de la liste. Attention, il ne retire que la première occurrence, si `element` apparait plusieurs fois, il faut l'enlever plusieurs fois.
++ `liste.remove(element)` : Retire `element` de la liste. 
+  **Attention**. Il ne retire que la première occurrence, si `element` apparait plusieurs fois, il faut l'enlever plusieurs fois.
   ```python runnable
-  ma_liste_de_courses = [ "stylos rouges" , "piles" , "souris pour la salle info" , "claviers" ]
+  ma_liste_de_courses = ["stylos", "piles", "souris", "clavier"]
   ma_liste_de_courses.remove("piles")
   print(ma_liste_de_courses)
   ```
 
 + `liste.reverse()` : Renverse l'ordre de la liste.
 
-+ `liste.count(element)` : Donne le nombre de fois où element se trouve dans la liste.
++ `liste.count(element)` : Donne le nombre de fois où `element` se trouve dans la liste.
 
-+ `sum(liste)` : Donne la somme des éléments de la liste lorsque c'est une liste de nombres bien entendu. Extremement pratique car elle évite une boucle `for` et sert très souvent.
++ `sum(liste)` : Calcule la somme des éléments de la `liste`. Il doit s'agir d'une liste de nombres.
 
-+ `liste.sort()` : Trie liste dans l'ordre croissant. Si on veux avoir un tri dans l'ordre décroissant il faut écrire `liste.sort(reverse=True)`.
++ `liste.sort()` : Trie `liste` *en place* dans l'ordre croissant, c'est-à-dire que la liste de départ est modifiée.  
+  Pour un tri dans l'ordre décroissant, utiliser `liste.sort(reverse=True)`.
 
-+ `sorted(liste)` : Renvoie liste triée dans l'ordre croissant. Si on veux avoir un tri dans l'ordre décroissant il faut écrire `sorted(liste,reverse=True)`.
-  Ces deux fonctions font semblablement la même à une grosse différence près : liste.sort() modifie liste ce qui veut dire qu'on perd notre liste de départ alors que sorted(liste) ne modifie pas liste, elle crée une nouvelle liste des éléments de `liste` triés.
++ `sorted(liste)` : Retourne `liste` triée dans l'ordre croissant.  
+  Pour un tri dans l'ordre décroissant utiliser `sorted(liste,reverse=True)`.
   
-+ `element in liste` : Renvoie True si element est dans la liste et False sinon.
+  Ces deux fonctions semblent identiques dans leur fonctionnement.  
+  Cependant, il y a une différence :
+  - `liste.sort()` modifie `liste`, la liste de départ est perdue.
+  - `liste_triee = sorted(liste)` ne modifie pas `liste`, elle crée une nouvelle liste des éléments de `liste` triés.
+  
++ `element in liste` : Renvoie `True` si `element` est dans la `liste` et `False` sinon.
   ```python runnable
-  ma_liste_de_courses = [ "stylos rouges" , "piles" , "souris pour la salle info" , "claviers" ]
-  print("claviers" in ma_liste_de_courses)
-  print("stylos" in ma_liste_de_courses)
+  ma_liste_de_courses = [ "stylos", "piles", "souris", "clavier"]
+  print("clavier" in ma_liste_de_courses)
+  print("marqueur" in ma_liste_de_courses
+  print("stylo" in ma_liste_de_courses)
   ```
-  Remarquez bien que "stylos" n'est pas dans la liste car c'est "stylos rouges" qui y est, ce qui n'est pas la même chaine de caractères.
+  Remarquez bien que `"stylo"` n'est pas dans la liste car c'est `"stylos"` avec un "s" qui y est, ce qui n'est pas la même chaine de caractères.
   
 
 # QCM
